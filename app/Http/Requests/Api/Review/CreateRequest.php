@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests\Api\Review;
 
+use App\Dto\ReviewDto;
+use App\Values\Email;
 use Illuminate\Foundation\Http\FormRequest;
 
 /**
@@ -33,5 +35,14 @@ class CreateRequest extends FormRequest
             'email' => ['required', 'string'],
             'text' => ['required', 'string']
         ];
+    }
+
+    public function getDto(): ReviewDto
+    {
+        return new ReviewDto(
+            $this->name,
+            new Email($this->email),
+            $this->text
+        );
     }
 }
