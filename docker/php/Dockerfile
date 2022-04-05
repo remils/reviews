@@ -21,6 +21,8 @@ RUN docker-php-ext-install mbstring tokenizer pdo pdo_pgsql pgsql zip xml
 RUN pecl install -o -f redis
 RUN docker-php-ext-enable redis
 
+RUN docker-php-ext-install sockets
+
 COPY ./php.ini /usr/local/etc/php/php.ini
 
 COPY ./supervisor/conf.d /etc/supervisor/conf.d
@@ -32,4 +34,4 @@ WORKDIR /var/www/html
 
 CMD [ "supervisord", "--nodaemon", "--configuration", "/etc/supervisord.conf" ]
 
-EXPOSE 9000
+EXPOSE 9000 6001
