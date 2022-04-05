@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\Review\CreateRequest;
 use Illuminate\Support\Facades\Response;
 
 class ReviewController extends Controller
@@ -12,7 +13,7 @@ class ReviewController extends Controller
         return Response::json();
     }
 
-    public function create()
+    public function create(CreateRequest $request)
     {
         return Response::json();
     }
