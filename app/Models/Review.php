@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Review\EmailCast;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,9 @@ class Review extends Model
         'name',
         'email',
         'text'
+    ];
+
+    protected $casts = [
+        'email' => EmailCast::class
     ];
 }
