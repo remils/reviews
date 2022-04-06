@@ -1,8 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { createRoot } from "react-dom/client";
+import Main from "./pages/Main";
 import "./index.scss";
 
-ReactDOM.render(
-    <React.StrictMode></React.StrictMode>,
-    document.getElementById("root")
-);
+createRoot(document.getElementById("root")).render(<Main />);
