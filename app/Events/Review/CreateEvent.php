@@ -2,6 +2,7 @@
 
 namespace App\Events\Review;
 
+use App\Http\Resources\ReviewResource;
 use App\Models\Review;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
@@ -15,7 +16,7 @@ class CreateEvent implements ShouldBroadcast
     use InteractsWithSockets;
     use SerializesModels;
 
-    public Review $review;
+    public array $review;
 
     /**
      * Create a new event instance.
@@ -24,7 +25,7 @@ class CreateEvent implements ShouldBroadcast
      */
     public function __construct(Review $review)
     {
-        $this->review = $review;
+        $this->review = ReviewResource::make($review)->toArray();
     }
 
     /**
